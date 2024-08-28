@@ -38,11 +38,10 @@ export default function Home() {
   // }, [userId]);
   useEffect(() => {
     // When user logs in, fetch their previous conversation
-    if (user) {
+    if (typeof window !== 'undefined' && user) {
       fetchConversation(user.email);
     }
   }, [user]);
-
   const fetchConversation = async (email) => {
     const conversationRef = doc(db, "conversations", email);
     const docSnap = await getDoc(conversationRef);
