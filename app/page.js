@@ -8,7 +8,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 export default function Home() {
   // const [userId, setUserId] = useState('');
   const [user, setUser] = useState(null);
@@ -22,6 +22,7 @@ export default function Home() {
   const [password, setPassword] = useState('');
   const [darkMode, setDarkMode] = useState(false);
 
+  const chatEndRef = useRef(null);
   // Generate or retrieve unique identifier
   // useEffect(() => {
   //   let userId = localStorage.getItem('userId');
@@ -141,7 +142,9 @@ export default function Home() {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
-
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
   return (
     <Box
     width='100vw'
@@ -276,6 +279,7 @@ export default function Home() {
                   {message.content}
                 </Box></Box>
             ))}
+            <div ref={chatEndRef} /> {/* Reference to scroll to */}
           </Stack>
           <Stack direction="row" spacing={2}>
             <TextField
