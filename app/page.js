@@ -203,7 +203,7 @@ export default function Home() {
         borderRadius: '8px', // Rounded corners for the title box
       }}
   >
-    Welcome to Abdullahi's personal Chat Assistant, ask anything about him!
+    Welcome to Abdullahi&apos;s personal Chat Assistant, ask anything about him!
   </Typography>
       {!user ? (
        <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" width="100%">
