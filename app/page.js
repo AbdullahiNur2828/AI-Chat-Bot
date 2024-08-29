@@ -6,6 +6,7 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } f
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 import { useEffect, useState } from "react";
 export default function Home() {
@@ -169,20 +170,25 @@ export default function Home() {
           }
         }}
       >
-        {darkMode ? <DarkModeIcon /> : <Brightness7Icon />}
+        {darkMode ? <DarkModeIcon sx={{ fontSize: 30 }}/> : <Brightness7Icon sx={{ fontSize: 30 }}/>}
       </Button>
       {user && (
         <Button
-          variant="contained"
+          
           onClick={handleLogout}
           sx={{
             position: 'absolute',
             top: 16,
             right: 80, // Adjust this value to place it right after the dark mode button
             zIndex: 1,
+            color: darkMode ? '#fff' : '#000',
+            backgroundColor: 'transparent', // Ensure button background is transparent
+            '&:hover': {
+            backgroundColor: 'transparent', // Ensure hover background is transparent
+          }
           }}
         >
-          Logout
+          <LogoutIcon/>
         </Button>
       )}
     <Typography
