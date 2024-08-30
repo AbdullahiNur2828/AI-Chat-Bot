@@ -15,7 +15,7 @@ if (typeof window !== 'undefined') {
   if (!getApps().length) {
     // Your web app's Firebase configuration
     const firebaseConfig = {
-      apiKey: "AIzaSyAXuIKG51Iwmm3JcJvr54Un0TA_mBS3rgE",
+      apiKey: "FIREBASE_KEY",
       authDomain: "chat-assitant.firebaseapp.com",
       projectId: "chat-assitant",
       storageBucket: "chat-assitant.appspot.com",
